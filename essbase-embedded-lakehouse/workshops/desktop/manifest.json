@@ -15,23 +15,23 @@
     {
       "title": "Lab 1: Check existing Lakehouse and prepare access",
       "description": "Labs that follow the introduction are numbered, starting with Lab 1",
-      "filename": "../../provision/provision.md"
+      "filename": "../../check/check.md"
     },
     {
       "title": "Lab 2: Launch Embedded Essbase",
-      "filename": "../../setup/setup.md"
+      "filename": "../../launch/launch.md"
     },
     {
       "title": "Lab 3: Import the prepared application",
-      "filename": "../../data-load/data-load.md"
+      "filename": "../../import/import.md"
     },
     {
       "title": "Lab 4: Analyze and Investigate",
-      "filename": "../../query/query.md"
+      "filename": "../../analyze/analyze.md"
     },
     {
         "title": "Lab 5: Connect through MCP",
-        "filename": "../../tables/tables.md"
+        "filename": "../../MCP/MCP.md"
     },
     {
             "title": "Lab 6: Variables in LiveLabs",
