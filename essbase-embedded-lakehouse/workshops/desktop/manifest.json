@@ -8,11 +8,6 @@
       "filename": "../../introduction/introduction.md"
     },
     {
-      "title": "Get Started with noVNC Remote Desktop",
-      "description": "Using noVNC Remote Desktop",
-      "filename": "https://livelabs.oracle.com/cdn/common/labs/remote-desktop/using-novnc-remote-desktop.md"
-    },
-    {
       "title": "Lab 1: Check existing Lakehouse and prepare access",
       "description": "Labs that follow the introduction are numbered, starting with Lab 1",
       "filename": "../../check/check.md"

@@ -2,44 +2,42 @@
 
 ## About this Workshop
 
-This introduction covers the complete "parent" workshop. Use this text to set up the story for the workshop. Be engaging - what will the learner get from spending their time on this workshop?
+In this workshop, you will use Oracle Essbase embedded in an existing Oracle Autonomous AI Lakehouse to explore a business analysis scenario. You will prepare access for a workshop user, launch Essbase from Database Actions, and import a prepared application with its data. You will then inspect and query a cube to confirm that the application loaded successfully.
+
+Two optional labs extend the exercise. With Oracle Smart View, you can compare Actual and Budget values by period and region, then drill through from a cube summary to the supporting Lakehouse records. With an approved MCP client, you can connect to Essbase using read-only access and list the applications available to your user.
+
+This workshop runs in your own Oracle Cloud tenancy. Your Autonomous AI Lakehouse must already be provisioned with embedded Essbase enabled; provisioning is outside the scope of these labs.
 
 Estimated Workshop Time: ## hours ## minutes
 
-*You may add an option video, using this format: [](youtube:YouTube video id)*
-
-  [](youtube:zNKxJjkq0Pw)
-
-Check the [documentation](https://livelabs.oracle.com/how-to) for more information on how to add videos and other content.
-
 ### Objectives
 
-In this workshop you will:
-- Provision the required environment.
-- Configure (setup) the core components.
-- Load data for a realistic scenario.
-- Query and validate the results.
+In this workshop, you will:
 
-### Prerequisites (Optional)
+- Confirm access to an existing Autonomous AI Lakehouse and prepare a workshop user.
+- Launch embedded Essbase from Database Actions.
+- Import a prepared Essbase application and verify its cube, data, and import job.
+- Optionally, analyze Actual and Budget data in Smart View and drill through to Lakehouse detail.
+- Optionally, connect an MCP client with read-only access and list available Essbase applications.
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. **Do NOT list** each previous lab as a prerequisite.*
+### Prerequisites
 
-This lab assumes you have:
-* An Oracle account
-* All previous labs successfully completed
+This workshop assumes you have:
 
-*This is the "fold" - below items are collapsed by default*
+- Access to your own Oracle tenancy and an existing Autonomous AI Lakehouse.
+- Access to Database Actions with an administrator who can create a database user and grant the permissions required for the workshop.
+- A web browser that can access your Lakehouse and Essbase environment.
 
-In general, the Introduction does not have Steps.
+For optional Lab 4, you need a compatible Microsoft Excel and Oracle Smart View setup, plus access to the prepared Lakehouse detail source.
+
+For optional Lab 5, you need a MCP-compatible AI client with the connection and authentication details for your Essbase environment.
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+- [Using Data Studio with Autonomous AI Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/adp-data-studio-overview-page.html)
+- [Oracle Smart View for Office documentation](https://docs.oracle.com/en/applications/enterprise-performance-management/smart-view/)
+- [Introducing Essbase MCP Server](https://docs.oracle.com/en/database/other-databases/essbase/26/esmcp/introducing-essbase-mcp-server.html)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+* **Author** - Ty Wolber, Cloud Engineer, Data Platform
+* **Last Updated** - October 2026
