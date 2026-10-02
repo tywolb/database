@@ -2,9 +2,9 @@
 
 ## Introduction
 
-In this lab, you will locate your existing Oracle Autonomous AI Lakehouse, open Database Actions as the database ADMIN user, and create a workshop database user. You will then sign in as that user to confirm access to Database Actions and Data Studio. If you plan to complete the optional drill-through exercise, you will also prepare the PeakGear source data.
+In this lab, you will locate your existing Oracle Autonomous AI Lakehouse, open Database Actions as the database ADMIN user, and create a workshop database user. You will then sign in as that user to confirm access to Database Actions and Data Studio. You will also download / upload the Sporting Goods sata for the optional drill-through exercise.
 
-Estimated Time: 20 minutes, plus 15 minutes for the optional PeakGear data load
+Estimated Time: 35 minutes
 
 ### About Database Actions
 
@@ -18,77 +18,83 @@ In this lab, you will:
 - Open Database Actions using the database ADMIN credentials.
 - Create a workshop user with Web Access and the Data Studio role.
 - Verify that the workshop user can sign in.
-- Optionally, load the PeakGear source data used for drill-through.
+- Load the Sporting Goods source data used for drill-through.
 
 ### Prerequisites
 
 This lab assumes you have:
 
-- An existing Autonomous AI Lakehouse with embedded Essbase enabled.
-- An OCI account that can view the Lakehouse in the Console.
-- The database ADMIN username and password for that Lakehouse.
-- Network access to Database Actions. If your Lakehouse uses a private endpoint, your browser must be able to reach its virtual cloud network.
-- For the optional data load, the approved PeakGear application package download link.
+- An existing Autonomous AI Lakehouse with embedded Essbase.
+- An OCI ADMIN account that can view the Lakehouse in the Console.
+- Access to Database Actions in AI Lakehouse.
 
 ## Task 1: Locate the Existing Autonomous AI Lakehouse
 
 1. Sign in to the Oracle Cloud Infrastructure Console.
 
-2. Open the navigation menu and select **Oracle AI Database**, then **Autonomous AI Database**.
+2. Open the hamburger menu in the top left corner and select **Oracle AI Database**, then **Autonomous AI Database**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_step1.png)
 
-3. Select the region and compartment that contain your workshop Lakehouse.
+3. Select the region and compartment that contain your AI Lakehouse.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_2.png)
 
-4. Find your Autonomous AI Lakehouse in the database list and select its display name.
+4. Find your AI Lakehouse in the database list. Confirm that it is the correct database and the lifecycle state is **Available**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_2b.png)
 
-5. On the database details page, confirm that you have opened the intended Lakehouse and that its lifecycle state is **Available**.
+5. Click on the AI Lakehouse to access the database details page.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_2a.png)
 
 ## Task 2: Open Database Actions
 
-1. On the Lakehouse details page, open the **Database actions** menu and select **View all database actions**.
+1. On the AI Lakehouse details page, open the **Database actions** menu and select **View all database actions**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_3.png)
 
 2. When prompted, sign in as the database **ADMIN** user.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_4.png)
 
-3. Confirm that the Database Actions launchpad opens. Locate the **Data Studio** area and its available tools.
+3. Confirm that the Database Actions launchpad opens. Locate the **Data Studio** area and its available tools. This will be used later in the workshop.
 
     > **Note:** The tools shown can vary with the signed-in database user's permissions. You will verify the workshop user's view in Task 4.
 
 ## Task 3: Create and Enable the Workshop Database User
 
-1. In Database Actions, open the navigation menu. Under **Administration**, select **Database Users**.
+1. In Database Actions, open the hamburger menu in the top left corner. Under **Administration**, select **Database Users**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_6.png)
 
 2. Select **Create User**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_7.png)
 
-3. Enter a username for the workshop user and create a password that meets the displayed requirements. Keep the username for use in the remaining labs.
+3. Enter a username for the workshop user and create a password that meets the displayed requirements. Keep the credentials saved for future use.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_8a.png)
 
-4. Select **Web Access** for the new user.
+4. Set the  **Quota on tablespace DATA** to the amount approved for your workshop environment.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_8b.png)
 
-5. Set the quota on the **DATA** tablespace to the amount approved for your workshop environment.
+5. Enable **REST, GraphQL, MongoDB API, and Web Access** for the new user.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_8c.png)
 
-6. Open **Granted Roles**. Grant **DWROLE** so the user can access the Data Studio tools used in this workshop. Confirm that the user also has **CONNECT**.
+6. Open **Granted Roles**. Grant **DWROLE** and **ESSBASE DEVELOPER** so the user can access the Data Studio tools used in this workshop. Confirm that the user also has **CONNECT** enabled.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_9.png)
 
 7. Select **Create User** and confirm that Database Actions reports that the user was created.
 
-8. Find the new user's card on the **Database Users** page. Confirm that the account is open and shows **REST Enabled**. Copy the Database Actions URL shown on the card.
+8. Find the new user's card on the **Database Users** page. Confirm that the account is open and shows **REST Enabled**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/aidp_10.png)
+
 
 <!-- Author TODO: Add the specialist-confirmed Essbase application import permission step here. Database roles alone do not establish that permission. -->
 
 ## Task 4: Sign In as the Workshop User and Verify Access
 
-1. Sign out of the ADMIN session, or open a separate private browser window.
+1. Sign out of the **ADMIN** session, or open a separate private browser window.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_11.png)
 
-2. Open the Database Actions URL that you copied from the workshop user's card.
+2. Sign in with the workshop user's credentials from Task 3.
+![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_12.png)
 
-3. Sign in with the workshop user's username and password.
+3. Keep the credentials saved and Database Actions URL available for the next lab.
 
-4. Confirm that Database Actions opens under the workshop user's account and that the Data Studio tools needed for the workshop are visible.
-
-5. Keep the workshop username and Database Actions URL available for the next lab.
-
-## Task 5: Prepare PeakGear Source Data for Optional Drill-Through
-
-If you plan to complete Lab 4, load the PeakGear source files into your Lakehouse. If the prepared PeakGear tables are already available in your tenancy, confirm that you can view their data and continue to the next lab.
-
-<!-- Author TODO: Replace the URL below with the same tested package URL used in Lab 3. Confirm that the package includes the three CSV files named here. -->
+## Task 5: Prepare PeakGear Source Data
 
 1. Download the [PeakGear application package](https://example.invalid/peakgear-lab3.zip) and extract it on your computer.
 
