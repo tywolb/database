@@ -96,7 +96,7 @@ This lab assumes you have:
 
 ## Task 5: Prepare PeakGear Source Data
 
-1. Download the [PeakGear application package](https://example.invalid/peakgear-lab3.zip) and extract it on your computer.
+1. Download and extract the [PeakGear Data](files/peakgear_sales.xlsx.zip) on your computer.
 
 2. In Database Actions, open **Data Studio**, then **Data Load**.
 
