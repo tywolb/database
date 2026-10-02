@@ -1,102 +1,96 @@
-# Title of the Lab
+# Import the Prepared PeakGear Application
 
 ## Introduction
 
-Summarize the outcome (e.g., "This lab loads sample data into ...").
+In this lab, you will download the prepared PeakGear application package, extract its application workbook, and import the workbook into Essbase. You will then check the import job, cube outline, and a known sales value.
 
-Estimated Time: ## minutes
+Estimated Time: 20 minutes
 
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
+### About Application Workbooks
+
+An Essbase application workbook is an Excel file that defines an application, cube, dimensions, and optional data. Importing the prepared PeakGear workbook creates the cube and loads its data without requiring you to build the outline manually.
 
 ### Objectives
 
-*List objectives for this lab using the format below*
-
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
 
-### Prerequisites (Optional)
+- Download and extract the PeakGear application package.
+- Import the application workbook and load its data.
+- Verify the import job, cube outline, and a known sales value.
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
+### Prerequisites
 
 This lab assumes you have:
-* An Oracle Cloud account
-* All previous labs successfully completed
 
+- Access to embedded Essbase with permission to import a new application.
+- The approved PeakGear application package download link.
+- A web browser that can download and extract a ZIP file.
 
-*Below, is the "fold"--where items are collapsed by default.*
+## Task 1: Download the Prepared Application Workbook
 
-## Task 1: Concise Task Description
+<!-- Author TODO: Replace the URL below with the tested, object-specific download URL before publishing. -->
 
-(optional) Task 1 opening paragraph.
+1. If you did not download the package in Lab 1, download the [PeakGear application package](https://example.invalid/peakgear-lab3.zip).
 
-1. Step 1
+2. Extract the ZIP file on your computer if you have not already done so.
 
-    ![Image alt text](images/sample1.png)
+3. Locate `peakgear_sales.xlsx` in the extracted folder. This is the file you will select in Essbase.
 
-    To create a link to local file you want the reader to download, use the following formats. _The filename must be in lowercase letters and CANNOT include any spaces._
+    > **Note:** The ZIP file is the download package. Import the extracted Excel application workbook, not the ZIP file. The package also includes the CSV source files used for optional drill-through.
 
-    Download the [starter file](files/starter-file.sql) SQL code.
+## Task 2: Import the Application and Load Data
 
-    When the file type is recognized by the browser, it will attempt to render it. So you can use the following format to force the download dialog box.
+1. Return to the Essbase home page and select **Import**.
 
-    Download the [sample JSON code](files/sample.json?download=1).
+2. In the Import dialog, select **File Browser** and open `peakgear_sales.xlsx`.
 
-    > Note: do not include zip files, CSV, PDF, PSD, JAR, WAR, EAR, bin, or exe files - you must have those objects stored somewhere else. We highly recommend using Oracle Cloud Object Store and creating a PAR URL instead. See [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/en-us/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
+3. Confirm that the application and cube names are populated from the workbook.
 
-2. Step 2
+4. Open the build options. Select **Create Database** and **Load Data**.
 
-    ![Image alt text](images/sample1.png)
+5. Select **OK** to start the import.
 
-4. Example with inline navigation icon ![Image alt text](images/sample2.png) click **Navigation**.
+    > **Note:** If an application with the same name already exists, choose a unique application or cube name before continuing.
 
-5. Example with bold **text**.
+## Task 3: Review the Import Job
 
-    If you add another paragraph, add 3 spaces before the line.
+1. Open **Jobs** in Essbase and find the most recent import job for the PeakGear application.
 
-## Task 2: Concise Task Description
+2. Open the job details and confirm that the job completed successfully.
 
-1. Step 1 - tables sample
+3. If the job reports an error, review its details before continuing.
 
-    Use tables sparingly:
+## Task 4: Inspect the Cube Outline
 
-    | Column 1 | Column 2 | Column 3 |
-    | --- | --- | --- |
-    | 1 | Some text or a link | More text  |
-    | 2 |Some text or a link | More text |
-    | 3 | Some text or a link | More text |
+1. On the Essbase home page, open the imported PeakGear application and its cube.
 
-2. You can also include bulleted lists - make sure to indent 4 spaces:
+2. Select **Launch Outline**.
 
-    - List item 1
-    - List item 2
+3. Expand the dimensions and confirm that the product, store, and time members defined in the prepared workbook are present.
 
-3. Code examples
+## Task 5: Verify a Known Sales Value
 
-    ```
-    Adding code examples
-    Indentation is important for the code example to appear inside the step
-    Multiple lines of code
-    <copy>Enclose the text you want to copy in <copy></copy>.</copy>
-    ```
+1. Open the PeakGear cube and select **Analyze Data**.
 
-4. Code examples that include variables
+2. Navigate to the member intersection listed below.
 
-    ```
-    <copy>ssh -i <ssh-key-file></copy>
-    ```
+    <!-- Author TODO: Replace the member names and value after the workbook has been built and tested. -->
+
+    | Time | Product | Store | Measure | Expected value |
+    | --- | --- | --- | --- | --- |
+    | [INSERT PERIOD] | [INSERT PRODUCT MEMBER] | [INSERT STORE MEMBER] | [INSERT SALES MEASURE] | [INSERT VALUE] |
+
+3. Confirm that the displayed value matches the expected value.
+
+You have imported the prepared PeakGear application and verified that its cube and data are available.
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+- [About Application Workbooks](https://docs.oracle.com/en/database/other-databases/essbase/21/esscd/application-workbooks.html)
+- [Create a Cube from an Application Workbook](https://docs.oracle.com/en/database/other-databases/essbase/21/esscd/create-cube-application-workbook.html)
+- [Analyze Data in the Web Interface](https://docs.oracle.com/en/database/other-databases/essbase/26/ugess/analyze-data-web-interface.html)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+
+* **Author** - Ty Wolber, Cloud Engineer
+* **Last Updated By/Date** - Ty Wolber, October 2026

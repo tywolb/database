@@ -1,92 +1,118 @@
-# Title of the Lab
+# Check the Existing Lakehouse and Prepare Access
 
 ## Introduction
 
-Briefly state what the learner will accomplish (e.g., “This lab walks you through provisioning ...”).
+In this lab, you will locate your existing Oracle Autonomous AI Lakehouse, open Database Actions as the database ADMIN user, and create a workshop database user. You will then sign in as that user to confirm access to Database Actions and Data Studio. If you plan to complete the optional drill-through exercise, you will also prepare the PeakGear source data.
 
-Estimated Time: ## minutes
+Estimated Time: 20 minutes, plus 15 minutes for the optional PeakGear data load
 
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
+### About Database Actions
+
+Database Actions is a browser-based interface for working with your Autonomous AI Database. Access from the OCI Console and access to database tools are controlled separately. In this lab, you will use the OCI Console to find the Lakehouse, then use database credentials to sign in to Database Actions.
 
 ### Objectives
 
-*List objectives for this lab using the format below*
-
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
 
-### Prerequisites (Optional)
+- Locate an existing Autonomous AI Lakehouse in your tenancy.
+- Open Database Actions using the database ADMIN credentials.
+- Create a workshop user with Web Access and the Data Studio role.
+- Verify that the workshop user can sign in.
+- Optionally, load the PeakGear source data used for drill-through.
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is needed to complete the lab. Do NOT list each previous lab as a prerequisite.*
+### Prerequisites
 
 This lab assumes you have:
-* An Oracle Cloud account
-* All previous labs successfully completed
 
+- An existing Autonomous AI Lakehouse with embedded Essbase enabled.
+- An OCI account that can view the Lakehouse in the Console.
+- The database ADMIN username and password for that Lakehouse.
+- Network access to Database Actions. If your Lakehouse uses a private endpoint, your browser must be able to reach its virtual cloud network.
+- For the optional data load, the approved PeakGear application package download link.
 
-*This is the "fold" - below items are collapsed by default*
+## Task 1: Locate the Existing Autonomous AI Lakehouse
 
-## Task 1: Concise Task Description
+1. Sign in to the Oracle Cloud Infrastructure Console.
 
-1. Step 1
+2. Open the navigation menu and select **Oracle AI Database**, then **Autonomous AI Database**.
 
-    ![Image alt text](images/sample1.png)
+3. Select the region and compartment that contain your workshop Lakehouse.
 
-    > **Note:** Use this format for notes, hints, and tips. Only use one "Note" at a time in a step.
+4. Find your Autonomous AI Lakehouse in the database list and select its display name.
 
-2. Step 2
+5. On the database details page, confirm that you have opened the intended Lakehouse and that its lifecycle state is **Available**.
 
-    ![Image alt text](images/sample1.png)
+## Task 2: Open Database Actions
 
-4. Example with inline navigation icon ![Image alt text](images/sample2.png) click **Navigation**.
+1. On the Lakehouse details page, open the **Database actions** menu and select **View all database actions**.
 
-5. Example with bold **text**.
+2. When prompted, sign in as the database **ADMIN** user.
 
-    If you add another paragraph, add 4 spaces before the line.
+3. Confirm that the Database Actions launchpad opens. Locate the **Data Studio** area and its available tools.
 
-## Task 2: Concise Task Description
+    > **Note:** The tools shown can vary with the signed-in database user's permissions. You will verify the workshop user's view in Task 4.
 
-1. Step 1 - tables sample
+## Task 3: Create and Enable the Workshop Database User
 
-    Use tables sparingly:
+1. In Database Actions, open the navigation menu. Under **Administration**, select **Database Users**.
 
-    | Column 1 | Column 2 | Column 3 |
-    | --- | --- | --- |
-    | 1 | Some text or a link | More text  |
-    | 2 |Some text or a link | More text |
-    | 3 | Some text or a link | More text |
+2. Select **Create User**.
 
-2. You can also include bulleted lists - make sure to indent 4 spaces:
+3. Enter a username for the workshop user and create a password that meets the displayed requirements. Keep the username for use in the remaining labs.
 
-    - List item 1
-    - List item 2
+4. Select **Web Access** for the new user.
 
-3. Code examples
+5. Set the quota on the **DATA** tablespace to the amount approved for your workshop environment.
 
-    ```
-    Adding code examples
-  	Indentation is important for the code example to appear inside the step
-    Multiple lines of code
-  	<copy>Enclose the text you want to copy in <copy></copy>.</copy>
-    ```
+6. Open **Granted Roles**. Grant **DWROLE** so the user can access the Data Studio tools used in this workshop. Confirm that the user also has **CONNECT**.
 
-4. Code examples that include variables
+7. Select **Create User** and confirm that Database Actions reports that the user was created.
 
-    ```
-    <copy>ssh -i <ssh-key-file></copy>
-    ```
+8. Find the new user's card on the **Database Users** page. Confirm that the account is open and shows **REST Enabled**. Copy the Database Actions URL shown on the card.
+
+<!-- Author TODO: Add the specialist-confirmed Essbase application import permission step here. Database roles alone do not establish that permission. -->
+
+## Task 4: Sign In as the Workshop User and Verify Access
+
+1. Sign out of the ADMIN session, or open a separate private browser window.
+
+2. Open the Database Actions URL that you copied from the workshop user's card.
+
+3. Sign in with the workshop user's username and password.
+
+4. Confirm that Database Actions opens under the workshop user's account and that the Data Studio tools needed for the workshop are visible.
+
+5. Keep the workshop username and Database Actions URL available for the next lab.
+
+## Task 5: Prepare PeakGear Source Data for Optional Drill-Through
+
+If you plan to complete Lab 4, load the PeakGear source files into your Lakehouse. If the prepared PeakGear tables are already available in your tenancy, confirm that you can view their data and continue to the next lab.
+
+<!-- Author TODO: Replace the URL below with the same tested package URL used in Lab 3. Confirm that the package includes the three CSV files named here. -->
+
+1. Download the [PeakGear application package](https://example.invalid/peakgear-lab3.zip) and extract it on your computer.
+
+2. In Database Actions, open **Data Studio**, then **Data Load**.
+
+3. Select **Load Data**, then **Local File**.
+
+4. Select `store_sales_transactions.csv`, `products.csv`, and `store_locations.csv` from the extracted package.
+
+5. Review the detected columns and target table names, then start the load.
+
+6. When the load completes, preview each table and confirm that it contains rows. Record the table names for the drill-through exercise in Lab 4.
+
+    > **Note:** The prepared Essbase workbook in the same package contains cube data. These source tables provide the underlying transaction detail for the optional drill-through exercise.
+
+You have prepared and verified the database user. In the next lab, you will use this account to launch embedded Essbase.
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+- [Connect with Built-In Oracle Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/connect-database-actions.html)
+- [Create and Manage Users on Autonomous AI Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/manage-users-create.html)
+- [Manage User Roles and Privileges on Autonomous AI Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/manage-users-privileges.html)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+
+* **Author** - Ty Wolber, Cloud Engineer
+* **Last Updated By/Date** - Ty Wolber, October 2026

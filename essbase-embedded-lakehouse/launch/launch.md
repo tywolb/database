@@ -1,92 +1,66 @@
-# Title of the Lab
+# Launch Embedded Essbase
 
 ## Introduction
 
-*Describe the lab in one or two sentences, for example:* This lab walks you through the steps to ...
+In this lab, you will open embedded Oracle Essbase from Database Actions and sign in with the workshop user created in Lab 1. You will confirm that the Essbase home page is available before importing the PeakGear application in the next lab.
 
-Estimated Lab Time: -- minutes
+Estimated Lab Time: 10 minutes
 
-### About <Product/Technology> (Optional)
-Enter background information here about the technology/feature or product used in this lab - no need to repeat what you covered in the introduction. Keep this section fairly concise. If you find yourself needing more than two sections/paragraphs, please utilize the "Learn More" section.
+### About Embedded Essbase
+
+Essbase provides multidimensional cubes for analyzing business data. In this workshop, Essbase is available from the Data Studio area of Database Actions in your existing Autonomous AI Lakehouse.
 
 ### Objectives
 
-*List objectives for this lab using the format below*
-
 In this lab, you will:
-* Objective 1
-* Objective 2
-* Objective 3
 
-### Prerequisites (Optional)
+- Sign in to Database Actions as the workshop user.
+- Launch Essbase from Data Studio.
+- Sign in to Essbase and verify that its home page opens.
+- Confirm that the Import action is available for the PeakGear application workbook.
 
-*List the prerequisites for this lab using the format below. Fill in whatever knowledge, accounts, etc. is necessary to complete the lab. Do NOT list each previous lab as a prerequisite.*
+### Prerequisites
 
 This lab assumes you have:
-* An Oracle Cloud account
-* All previous labs successfully completed
 
+- Access to the existing Autonomous AI Lakehouse with embedded Essbase enabled.
+- The workshop user's Database Actions URL, username, and password from Lab 1.
+- Network access to Database Actions and Essbase.
 
-*This is the "fold" - below items are collapsed by default*
+## Task 1: Open Database Actions as the Workshop User
 
-## Task 1: Concise Task Description
+1. Open the Database Actions URL copied from the workshop user's card in Lab 1.
 
-(optional) Task 1 opening paragraph.
+2. Sign in with the workshop user's username and password.
 
-1. Step 1
+3. Confirm that the Database Actions launchpad opens under the workshop user's account.
 
-    ![Image alt text](images/sample1.png)
+## Task 2: Launch Essbase from Data Studio
 
-2. Step 2
+1. On the Database Actions launchpad, select **Data Studio**.
 
-    ![Image alt text](images/sample1.png)
+2. Select **Essbase**. Essbase opens in your browser.
 
-4. Example with inline navigation icon ![Image alt text](images/sample2.png) click **Navigation**.
+## Task 3: Verify the Essbase Home Page and Signed-In User
 
-5. Example with bold **text**.
+1. On the Essbase sign-in page, enter the username and password for the workshop user created in Lab 1.
 
-    If you add another paragraph, add 3 spaces before the line.
+2. Select **Sign In**.
 
-## Task 2: Concise Task Description
+3. Confirm that the Essbase home page opens and that you are signed in as the workshop user.
 
-1. Step 1 - tables sample
+4. Locate the **Applications** area and the **Import** action. You will import and verify the prepared PeakGear application in the next lab.
 
-    Use tables sparingly:
+    > **Note:** If the workshop user cannot sign in to Essbase, confirm that the database account is open and ask your administrator to check the user's Essbase access.
 
-    | Column 1 | Column 2 | Column 3 |
-    | --- | --- | --- |
-    | 1 | Some text or a link | More text  |
-    | 2 |Some text or a link | More text |
-    | 3 | Some text or a link | More text |
-
-2. You can also include bulleted lists - make sure to indent 4 spaces:
-
-    - List item 1
-    - List item 2
-
-3. Code examples
-
-    ```
-    Adding code examples
-    Indentation is important for the code example to appear inside the step
-    Multiple lines of code
-    <copy>Enclose the text you want to copy in <copy></copy>.</copy>
-    ```
-
-4. Code examples that include variables
-
-    ```
-    <copy>ssh -i <ssh-key-file></copy>
-    ```
+You have launched embedded Essbase and verified the workshop user's sign-in.
 
 ## Learn More
 
-*(optional - include links to docs, white papers, blogs, etc)*
-
-* [URL text 1](http://docs.oracle.com)
-* [URL text 2](http://docs.oracle.com)
+- [Connect with Built-In Oracle Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/connect-database-actions.html)
+- [Using the Oracle Essbase Web Interface](https://docs.oracle.com/en/database/other-databases/essbase/26/ugess/index.html)
 
 ## Acknowledgements
-* **Author** - <Name, Title, Group>
-* **Contributors** -  <Name, Group> -- optional
-* **Last Updated By/Date** - <Name, Month Year>
+
+* **Author** - Ty Wolber, Cloud Engineer
+* **Last Updated By/Date** - Ty Wolber, October 2026

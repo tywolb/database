@@ -17,15 +17,15 @@
       "filename": "../../launch/launch.md"
     },
     {
-      "title": "Lab 3: Import the prepared application",
+      "title": "Lab 3: Import the Prepared PeakGear Application",
       "filename": "../../import/import.md"
     },
     {
-      "title": "Lab 4: Analyze and Investigate",
+      "title": "Lab 4: Analyze and Investigate PeakGear Sales",
       "filename": "../../analyze/analyze.md"
     },
     {
-        "title": "Lab 5: Connect through MCP",
+        "title": "Lab 5: Connect to Essbase through MCP",
         "filename": "../../MCP/MCP.md"
     },
     {

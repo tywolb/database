@@ -1,71 +1,69 @@
-# Tables in LiveLabs
+# Connect to Essbase through MCP
 
 ## Introduction
 
-Learn how to introduce and caption tables in LiveLabs.
+In this optional lab, you will connect an approved AI client to the Essbase MCP server with read-only access. You will discover the available tools and ask the client to list the Essbase applications available to your user, including the PeakGear application imported in Lab 3.
 
-Estimated Time: ## minutes
+Estimated Time: 20 minutes
+
+### About Essbase MCP
+
+The Essbase MCP server exposes Essbase tools to compatible AI clients. The `viewer` access profile exposes read-only tools. Your Essbase permissions still determine which applications you can see.
 
 ### Objectives
 
-- Create Markdown tables that render well in LiveLabs.
-- Add custom titles/captions when needed.
-- Reference the LiveLabs Markdown cheatsheet for formatting tips.
+In this lab, you will:
 
+- Verify the Essbase MCP endpoint for your environment.
+- Connect an approved AI client with the `viewer` profile.
+- List the Essbase applications available to your user.
 
-## Task 1: Create a table
+### Prerequisites
 
-1. You can define a table in Markdown just like so:
+This lab assumes you have:
 
-    ```
-    | Tables        |      Are      |  Cool |
-    | ------------- | :-----------: | ----: |
-    | **col 3 is**  | right-aligned | $1600 |
-    | col 2 is      |  *centered*   |   $12 |
-    | zebra stripes | ~~are neat~~  |    $1 |
-    ```
-    The result looks like this:
+- Access to the PeakGear application imported in Lab 3.
+- An approved MCP-compatible AI client.
+- The Essbase MCP endpoint and approved authentication details for your environment.
+- Confirmation from your workshop administrator that the embedded Essbase environment exposes the MCP service.
 
-    | Tables        |      Are      |  Cool |
-    | ------------- | :-----------: | ----: |
-    | **col 3 is**  | right-aligned | $1600 |
-    | col 2 is      |  *centered*   |   $12 |
-    | zebra stripes | ~~are neat~~  |    $1 |
+## Task 1: Verify the Essbase MCP Endpoint
 
-    You can see that there is a default table caption provided which is by default a concatenation of the workshop title and the lab title.
+1. Obtain the Essbase MCP base URL and authentication instructions from your workshop administrator.
 
-    If you don't like the default, you can also provide your own table title by adding the below the table definition:
+2. Confirm that the endpoint is available in your environment. The standard Essbase endpoint has the form `https://<essbase-server>/essbase/rest/v1/ess-mcp`.
 
-    ```
-    {: title="My table title"}
-    ```
+3. Add `?profile=viewer` to the endpoint URL for this lab.
 
-    The complete markdown looks like this:
+    > **Note:** Use the endpoint confirmed for your embedded environment. Do not assume that the standard URL is enabled in every Lakehouse.
 
-    ```
-    | Tables        |      Are      |  Cool |
-    | ------------- | :-----------: | ----: |
-    | **col 3 is**  | right-aligned | $1600 |
-    | col 2 is      |  *centered*   |   $12 |
-    | zebra stripes | ~~are neat~~  |    $1 |
-    {: title="My table title"}
-    ```
+## Task 2: Connect an Approved AI Client
 
-    Now our table looks like this:
+1. In your approved AI client, add an MCP connection using the endpoint with `?profile=viewer`.
 
-    | Tables        |      Are      |  Cool |
-    | ------------- | :-----------: | ----: |
-    | **col 3 is**  | right-aligned | $1600 |
-    | col 2 is      |  *centered*   |   $12 |
-    | zebra stripes | ~~are neat~~  |    $1 |
-    {: title="My table title"}
+2. Complete the authentication flow supplied for your client and environment.
 
-    As you can see, the numbering is added automatically.
+3. Refresh the connection and confirm that the Essbase MCP tools are available.
 
-    Isn't that cool?
+    > **Note:** Keep client secrets and access tokens out of the LiveLab, screenshots, and source files.
 
-    You can also refer to the [LiveLabs Markdown Cheatsheet](https://c4u04.objectstorage.us-ashburn-1.oci.customer-oci.com/p/EcTjWk2IuZPZeNnD_fYMcgUhdNDIDA6rt9gaFj_WZMiL7VvxPBNMY60837hu5hga/n/c4u04/b/livelabsfiles/o/labfiles/LiveLabs_MD_Cheat_Sheet.pdf)
+## Task 3: List the Available Essbase Applications
+
+1. Ask the client: **List the Essbase applications available to me.**
+
+2. Confirm that the response includes the PeakGear application imported in Lab 3.
+
+3. If the application is missing, verify the signed-in user and the user's Essbase application permissions.
+
+You have connected an AI client to Essbase with read-only access and confirmed that the PeakGear application is visible.
+
+## Learn More
+
+- [Introducing Essbase MCP Server](https://docs.oracle.com/en/database/other-databases/essbase/26/esmcp/introducing-essbase-mcp-server.html)
+- [Choose an Access Profile](https://docs.oracle.com/en/database/other-databases/essbase/26/esmcp/mcp-access-profiles.html)
+- [Connect an AI Client](https://docs.oracle.com/en/database/other-databases/essbase/26/esmcp/connect-ai-client.html)
 
 ## Acknowledgements
-* **Author** - LiveLabs Team
-* **Last Updated By/Date** - LiveLabs Team, 2026
+
+* **Author** - Ty Wolber, Cloud Engineer
+* **Last Updated By/Date** - Ty Wolber, October 2026
