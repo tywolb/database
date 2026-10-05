@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this lab, you will locate your existing Oracle Autonomous AI Lakehouse, open Database Actions as the database ADMIN user, and create a workshop database user. You will then sign in as that user to confirm access to Database Actions and Data Studio. You will also download / upload the Sporting Goods sata for the optional drill-through exercise.
+In this lab, you will locate your existing Oracle Autonomous AI Lakehouse, open Database Actions as the database ADMIN user, and create a workshop database user. You will then sign in as that user to confirm access to Database Actions and Data Studio. You will also download / upload the Sporting Goods data for the optional drill-through exercise.
 
 Estimated Time: 35 minutes
 
@@ -73,8 +73,8 @@ This lab assumes you have:
 5. Enable **REST, GraphQL, MongoDB API, and Web Access** for the new user.
 ![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_8c.png)
 
-6. Open **Granted Roles**. Grant **DWROLE** and **ESSBASE DEVELOPER** so the user can access the Data Studio tools used in this workshop. Confirm that the user also has **CONNECT** enabled.
-![OCI navigation menu with Autonomous AI Database highlighted](images/ailh_9.png)
+6. Open **Granted Roles**. Grant **DWROLE** and **ESSBASE DEVELOPER** so the user can access the Data Studio tools used in this workshop. Confirm that **DWROLE** is set by default and **CONNECT** is enabled.
+![OCI navigation menu with Autonomous AI Database highlighted](images/hold.png)
 
 7. Select **Create User** and confirm that Database Actions reports that the user was created.
 
@@ -96,17 +96,24 @@ This lab assumes you have:
 
 ## Task 5: Prepare PeakGear Source Data
 
-1. Download and extract the [PeakGear Data](files/peakgear_sales.xlsx.zip) on your computer.
+1. Download and extract the [PeakGear Sporting Goods Data](files/peakgear.zip) on your computer. This will be uploaded to embedded Essbase in the next portion of the Lab.
 
-2. In Database Actions, open **Data Studio**, then **Data Load**.
+2. In Database Actions, open **Data Studio**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/dataload.png)
 
-3. Select **Load Data**, then **Local File**.
+3. Select **Data Load**, then **Load Data**.
+![OCI navigation menu with Autonomous AI Database highlighted](images/dl.png)
 
-4. Select `store_sales_transactions.csv`, `products.csv`, and `store_locations.csv` from the extracted package.
+4. Confirm data is being loaded from **Local Files** then click **Select Files**
+![OCI navigation menu with Autonomous AI Database highlighted](images/dl2.png)
 
-5. Review the detected columns and target table names, then start the load.
+5. Select `store_sales_transactions.csv`, `products.csv`, and `store_locations.csv` from the extracted package.
+![OCI navigation menu with Autonomous AI Database highlighted](images/data.png)
 
-6. When the load completes, preview each table and confirm that it contains rows. Record the table names for the drill-through exercise in Lab 4.
+6. Review the detected columns and target table names, then **Start** and **Run** the load.
+![OCI navigation menu with Autonomous AI Database highlighted](images/data2.png)
+
+7. When the load completes, preview each table and confirm that it contains rows. Record the table names for the drill-through exercise in Lab 4.
 
     > **Note:** The prepared Essbase workbook in the same package contains cube data. These source tables provide the underlying transaction detail for the optional drill-through exercise.
 
