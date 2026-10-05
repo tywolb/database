@@ -23,71 +23,74 @@ In this lab, you will:
 This lab assumes you have:
 
 - Access to embedded Essbase with permission to import a new application.
-- The approved PeakGear application package download link.
-- A web browser that can download and extract a ZIP file.
+- The approved PeakGear application uploaded to AI Lakehouse.
+- Essbase Power User permissions for cube building.
 
-## Task 1: Download the Prepared Application Workbook
+## Task 1: Import the Application and Load Data
 
-<!-- Author TODO: Replace the URL below with the tested, object-specific download URL before publishing. -->
+1. Download and extract the [PeakGear Sporting Goods Data](files/peakgear-sales.zip) on your computer. This will be uploaded to Essbase to build the Sales Cube.
 
-1. If you did not download the package in Lab 1, download the [PeakGear application package](https://example.invalid/peakgear-lab3.zip).
+2. On the Essbase home page select **Import**.
+![Essbase Login](images/ess2.png)
 
-2. Extract the ZIP file on your computer if you have not already done so.
+3. Select **File Browser**.
+![Data Load in Data Studio 2](images/temp5.png)
 
-3. Locate `peakgear_sales.xlsx` in the extracted folder. This is the file you will select in Essbase.
+4. Select `peakgear_sales.xlsx` from the extracted package. Do not select the CSV files.
+![Data Load in Data Studio 3](images/import2.png)
+    > **Note:** Confirm the file name does not contain a space such as `peakgear_sales 2.xlsx`
 
-    > **Note:** The ZIP file is the download package. Import the extracted Excel application workbook, not the ZIP file. The package also includes the CSV source files used for optional drill-through.
+5. Confirm that the application name is `peakgear_sales` and the cube name is `Sales`, then select **OK**.
+![Data Load in Data Studio 3](images/import.png)
 
-## Task 2: Import the Application and Load Data
+6. Confirm that one new application, `peakgear_sales`, appears on the Applications page.
+![Data Load in Data Studio 3](images/import3.png)
 
-1. Return to the Essbase home page and select **Import**.
-
-2. In the Import dialog, select **File Browser** and open `peakgear_sales.xlsx`.
-
-3. Confirm that the application and cube names are populated from the workbook.
-
-4. Open the build options. Select **Create Database** and **Load Data**.
-
-5. Select **OK** to start the import.
-
-    > **Note:** If an application with the same name already exists, choose a unique application or cube name before continuing.
-
-## Task 3: Review the Import Job
+## Task 2: Review the Import Job
 
 1. Open **Jobs** in Essbase and find the most recent import job for the PeakGear application.
+![Data Load in Data Studio 3](images/import4.png)
 
 2. Open the job details and confirm that the job completed successfully.
+![Data Load in Data Studio 3](images/import5.png)
 
 3. If the job reports an error, review its details before continuing.
+![Data Load in Data Studio 3](images/import6.png)
 
-## Task 4: Inspect the Cube Outline
+## Task 3: Inspect the Cube Outline
 
-1. On the Essbase home page, open the imported PeakGear application and its cube.
+1. On the Essbase Applications page, open `peakgear_sales`.
+![Data Load in Data Studio 3](images/import7.png)
 
-2. Select **Launch Outline**.
+2. Under **Database** click the three dots next to **Sales** then **Outline**.
+![Data Load in Data Studio 3](images/cube1.png)
 
-3. Expand the dimensions and confirm that the product, store, and time members defined in the prepared workbook are present.
+3. Expand the `Time`, `Store`, `Product`, and `Measures` dimensions. Confirm that the outline includes years, quarters, months, cities, stores, product categories, SKUs, and the `Units` and `Sales` measures.
+![Data Load in Data Studio 3](images/cube2.png)
 
-## Task 5: Verify a Known Sales Value
+## Task 4: Verify a Known Sales Value
 
-1. Open the PeakGear cube and select **Analyze Data**.
+1. Go back to the Home Page and open the `peakgear_sales` application again.
+![Data Load in Data Studio 3](images/import7.png)
 
-2. Navigate to the member intersection listed below.
+2. Under **Database** click the Cube button next to **Sales** to **Analyze Data**.
+![Data Load in Data Studio 3](images/cube3.png)
 
-    <!-- Author TODO: Replace the member names and value after the workbook has been built and tested. -->
+3. In **Ad Hoc Analysis**, select a member and click **Zoom In** in the upper-left toolbar. Repeat along each path:
 
-    | Time | Product | Store | Measure | Expected value |
-    | --- | --- | --- | --- | --- |
-    | [INSERT PERIOD] | [INSERT PRODUCT MEMBER] | [INSERT STORE MEMBER] | [INSERT SALES MEASURE] | [INSERT VALUE] |
+   - `Time` → `FY2021` → `2021-Q1` → `2021-01`
+   - `Product` → `ACTIVEWEAR` → `SKU-100002`
+   - `Store` → `Austin` → `Store_004`
+   - `Measures` → `Sales`
 
-3. Confirm that the displayed value matches the expected value.
+4. Select each final member and click **Keep Only**. Confirm the resulting sales value is **1,448.55**.
+![Data Load in Data Studio 3](images/cube5.png)
 
-You have imported the prepared PeakGear application and verified that its cube and data are available.
+You have imported the prepared PeakGear sales cube and verified its outline and data.
 
 ## Learn More
 
-- [About Application Workbooks](https://docs.oracle.com/en/database/other-databases/essbase/21/esscd/application-workbooks.html)
-- [Create a Cube from an Application Workbook](https://docs.oracle.com/en/database/other-databases/essbase/21/esscd/create-cube-application-workbook.html)
+- [Create and Update a Cube from Tabular Data](https://docs.oracle.com/en/database/other-databases/essbase/21/esscd/create-and-update-cube-tabular-data.html)
 - [Analyze Data in the Web Interface](https://docs.oracle.com/en/database/other-databases/essbase/26/ugess/analyze-data-web-interface.html)
 
 ## Acknowledgements

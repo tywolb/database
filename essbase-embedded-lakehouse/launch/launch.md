@@ -14,7 +14,6 @@ Essbase provides multidimensional cubes for analyzing business data. In this wor
 
 In this lab, you will:
 
-- Sign in to Database Actions as the workshop user.
 - Launch Essbase from Data Studio.
 - Sign in to Essbase and verify that its home page opens.
 - Confirm that the Import action is available for the PeakGear application workbook.
@@ -27,29 +26,26 @@ This lab assumes you have:
 - The workshop user's Database Actions URL, username, and password from Lab 1.
 - Network access to Database Actions and Essbase.
 
-## Task 1: Open Database Actions as the Workshop User
-
-1. Open the Database Actions URL copied from the workshop user's card in Lab 1.
-
-2. Sign in with the workshop user's username and password.
-
-3. Confirm that the Database Actions launchpad opens under the workshop user's account.
-
-## Task 2: Launch Essbase from Data Studio
+## Task 1: Launch Essbase from Data Studio
 
 1. On the Database Actions launchpad, select **Data Studio**.
 
-2. Select **Essbase**. Essbase opens in your browser.
+2. Select **Essbase**. Essbase will open in your browser.
 
-## Task 3: Verify the Essbase Home Page and Signed-In User
+    > **Note:** Alternatively, launch Essbase by copying the Database actions URL from the search bar and replace `/ords...` with `/essbase/jet`
+
+## Task 2: Verify the Essbase Home Page and Signed-In User
 
 1. On the Essbase sign-in page, enter the username and password for the workshop user created in Lab 1.
+![Essbase Login](images/essbase1.png)
 
-2. Select **Sign In**.
+2. Select **Sign In**. Essbase will take a few minutes to provision after the first user logs in.
 
 3. Confirm that the Essbase home page opens and that you are signed in as the workshop user.
+![Essbase Login](images/temp4.png)
 
 4. Locate the **Applications** area and the **Import** action. You will import and verify the prepared PeakGear application in the next lab.
+![Essbase Login](images/ess2.png)
 
     > **Note:** If the workshop user cannot sign in to Essbase, confirm that the database account is open and ask your administrator to check the user's Essbase access.
 
